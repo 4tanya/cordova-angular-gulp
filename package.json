@@ -1,0 +1,29 @@
+{
+  "name": "angular-gulp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tatyana Korzun",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "angular-bootstrap": "^0.12.2",
+    "angular-ui-bootstrap": "^2.1.2",
+    "browserify": "^13.1.0",
+    "gaze": "^1.1.1",
+    "glob-watcher": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-connect": "^5.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-ruby-sass": "^2.1.0",
+    "resolve": "^1.1.7",
+    "ui-bootstrap": "^0.1.2",
+    "vinyl-fs": "^2.4.3",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,118 @@
+@import "bootstrap";
+@import "font-awesome";
+
+@mixin vendor($property, $value) {
+    -webkit-#{$property}: $value;
+     -khtml-#{$property}: $value;
+       -moz-#{$property}: $value;
+            #{$property}: $value;
+}
+
+#app {
+	background-color:#ebeff2;
+	a {
+		color:inherit;
+		&:hover,
+		&:focus,
+		&:active,
+		&:visited {
+			text-decoration:none;
+			color:inherit;
+		}
+	}
+	.clearfix {
+		&:after {
+		    content: " ";
+			visibility: hidden;
+			display: block;
+			height: 0;
+			clear: both; 
+	    }
+	}
+	.pointer{cursor:pointer;}
+	.block-center{margin:auto;}
+	.text-center{text-align: center;}
+	.capitalize{text-transform: capitalize;}
+	.uppercase{text-transform: uppercase;}
+	.color-origin{color:#5bc0de}
+	.color-edit{color:#449d44}
+	.color-danger{color:#c9302c}
+}
+#app .outer-wrapper {
+    background-color:#ebeff2;
+    padding-top:70px;
+    padding-bottom:20px;
+    .table-section {
+    	margin:20px auto;
+    	padding: 20px;
+    	background-color: #fff;
+    	box-shadow: 0 0px 8px 0 rgba(0,0,0,.06)
+    				, 0 1px 0px 0 rgba(0,0,0,.02);
+    	@include vendor(border-radius, 5px);
+    	@include vendor(box-sizing, border-box);
+    	@media screen and (min-width: 1200px) {
+	        width: 1140px;
+	    }
+	    .table-section-caption {
+	    	margin-bottom: 30px;
+	    	font-family: 'Karla', sans-serif;
+	    	.title {
+	    		color: #505458;
+	    		font-size: 16px;
+			    font-weight: 600;
+			    line-height: 1em;
+	    	}
+	    	button {
+	    		@include vendor(border-radius, 2px);
+	    		margin-left: 15px;
+    			padding: 4px 10px;
+    			.fa-plus{
+    				font-size:11px;
+    				margin-right:6px;
+    			}
+	    	}
+	    }
+	    .table-data {
+	    	width:100%;
+	    	font-family:"Open Sans",sans-serif;
+	    	font-size:13px;
+	    	thead th {
+	    		padding:9px;
+	    		color: #666;
+    			font-weight: 600;
+    			vertical-align: bottom;
+    			border-bottom: 2px solid #ebeff2;
+    			white-space: nowrap;
+	    	}
+	    	tbody tr {
+	    		&:nth-of-type(odd) {
+	    			background-color: #f4f8fb;
+	    		}
+	    		td {
+		    		padding:9px;
+		    		color:#35;
+		    		vertical-align: top;
+		    		border-top: 1px solid #ebeff2;
+		    		.action-icons{
+		    			span{
+		    				width:1.5em;
+		    				height:1.5em;
+		    				display:inline-block;
+		    				padding:.5em;
+		    				i{
+		    					font-size:1.5em;
+		    				}
+		    			}
+		    		}
+		    	}
+	    	}
+	    }
+    }
+}
+
+.modal-content {
+	min-height: 100px;
+	.modal-form {
+		padding:20px;
+	}
+}

@@ -1,0 +1,13 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="ctrl.close(false)">
+	  <span aria-hidden="true">&times;</span>
+	</button>
+	<h4 class="modal-title">Forecasts</h4>
+</div>
+<form class="modal-form" name="form">
+    <label>Enter city name: <input type="text" name="name" ng-model="ctrl.name" ng-pattern="/^[A-Za-zА-Яа-яЁё\s\-]*$/" /></label>
+    <button type="submit" ng-click="ctrl.close(true)" ng-disabled="form.name.$error.pattern" class="btn btn-info">
+    	{{ctrl.isEditMode?'Edit':'Add'}}
+    </button> 
+    <p ng-show="form.name.$error.pattern" class="color-danger">Only letters, space and hyphen are allowed.</p>  
+</form>
