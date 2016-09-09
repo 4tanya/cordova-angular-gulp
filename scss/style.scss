@@ -37,10 +37,14 @@
 	.color-origin{color:#5bc0de}
 	.color-edit{color:#449d44}
 	.color-danger{color:#c9302c}
+	header{
+		background-color:#fff;
+		@include .text-center;
+	}
 }
 #app .outer-wrapper {
     background-color:#ebeff2;
-    padding-top:70px;
+    padding-top:20px;
     padding-bottom:20px;
     .table-section {
     	margin:20px auto;

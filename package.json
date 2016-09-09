@@ -10,20 +10,24 @@
   "license": "ISC",
   "devDependencies": {
     "angular": "^1.5.8",
-    "angular-bootstrap": "^0.12.2",
     "angular-ui-bootstrap": "^2.1.2",
+    "angular-ui-router": "^0.3.1",
     "browserify": "^13.1.0",
+    "cordova-lib": "^0.21.6",
+    "del": "^0.1.1",
     "gaze": "^1.1.1",
     "glob-watcher": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-bower": "0.0.13",
     "gulp-connect": "^5.0.0",
+    "gulp-jshint": "^1.8.4",
     "gulp-notify": "^2.2.0",
     "gulp-ruby-sass": "^2.1.0",
     "resolve": "^1.1.7",
-    "ui-bootstrap": "^0.1.2",
     "vinyl-fs": "^2.4.3",
     "vinyl-source-stream": "^1.1.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "cordova-android": "^3.5.1"
+  }
 }

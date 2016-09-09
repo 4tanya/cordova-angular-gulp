@@ -1,7 +1,7 @@
-module.exports = function($scope, $modal, serviceApi) {
+module.exports = function($scope, $uibModal, serviceApi) {
 	var self = this;
 	self.$scope = $scope;
-	self.$modal = $modal;
+	self.$uibModal = $uibModal;
 	self.serviceApi = serviceApi;
 	self.data = [];
 
@@ -15,16 +15,6 @@ module.exports = function($scope, $modal, serviceApi) {
 	}
 	self.getDataBySeveralIds = function(data){
 		return self.serviceApi.getDataBySeveralIds(data);
-	}
-	self.getItemByPosition = function(pos){
-		return self.getDataByCoords().then(
-			res => {
-        		self.setItem(res.data, res.data);
-        		self.getAllItems();
-        	},
-        	error => {
-        	}
-		);
 	}
 	self.getCurrentTime = function(){
 		var now = new Date();
@@ -82,7 +72,7 @@ module.exports = function($scope, $modal, serviceApi) {
         );
 	}
 	self.editItem = function(item) {
-		self.$modal.open({
+		self.$uibModal.open({
 			templateUrl:'../templates/modal.html',
             controller:'ctrlEdit as ctrl',
             resolve: {
@@ -105,7 +95,7 @@ module.exports = function($scope, $modal, serviceApi) {
 		self.getAllItems();
 	}
 	self.addItem = function(){
-		self.$modal.open({
+		self.$uibModal.open({
 			templateUrl:'../templates/modal.html',
             controller:'ctrlAdd as ctrl'
         }).result.then((data) => {
@@ -114,9 +104,6 @@ module.exports = function($scope, $modal, serviceApi) {
         });
 	}
 	self.fillTableWithData = function(){
-		if (navigator.geolocation && confirm("Do you agree identify your geoposition?"))
-			navigator.geolocation.getCurrentPosition(self.getItemByPosition, self.getAllItems, 
-				{maximumAge:60000, timeout:10000, enableHighAccuracy:false});
 		return self.getAllItems();
 	}
 	self.setTimerUpdate = function(){

@@ -1,0 +1,42 @@
+<div class="outer-wrapper" ng-init="ctrl.init()">
+    <section class="table-section">
+        <header class="table-section-caption clearfix">
+            <span class="title">Forecasts</span>
+            <button type="submit" ng-click="ctrl.addItem()" class="btn btn-info">
+                <span>Add new city</span>
+            </button>
+            <button type="submit" ng-click="ctrl.updateAllItems()" class="btn btn-info pull-right">
+            	<i class="fa fa-refresh" ng-if="!ctrl.isUpdating"></i>
+            	<i class="fa fa-refresh fa-spin fa-fw" ng-if="ctrl.isUpdating"></i>
+            </button>
+        </header>
+        <table class="table-data table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>City name</th>
+                    <th>Temp</th>
+                    <th>Date of updation</th>		        
+                    <th>Created at</th>
+                    <th>Updated at</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in ctrl.data">
+                    <td>{{item.data.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.data.main.temp}}</td>
+                    <td>{{item.data.updationDate}}</td>		        
+                    <td>{{item.data.created}}</td>
+                    <td>{{item.data.updated}}</td>
+                    <td class="action-icons">
+                    	<span ng-click="ctrl.updateItem(item)"><i class="fa fa-refresh pointer color-origin"></i></span>
+                    	<span ng-click="ctrl.editItem(item)"><i class="fa fa-pencil-square-o pointer color-edit"></i></span>
+                    	<span ng-click="ctrl.deleteItem(item)"><i class="fa fa-trash-o pointer color-danger"></i></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>

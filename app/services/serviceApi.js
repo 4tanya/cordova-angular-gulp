@@ -17,19 +17,6 @@ module.exports = function($http) {
             params: data
         });
     };
-    self.getDataByCoords = function(data){
-        var data = {
-            appid: self.appid,
-            lon: data.lon,
-            lat: data.lat,
-            units: 'metric'
-        }
-        return self.$http({
-            method: 'GET',
-            url: self.api + '/weather',
-            params: data
-        });
-    };
     self.getDataBySeveralIds = function(data){
         var data = {
             appid: self.appid,
