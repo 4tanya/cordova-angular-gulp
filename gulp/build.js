@@ -24,9 +24,9 @@
     });
 
     gulp.task('clean', function(cb) {
-        del(['www/css', 'www/fonts', 'www/img', 'www/js', 'www/templates'], cb)
+        del(['www/**/*', '!www/index.html', '!www/index_old.html'], cb)
     });
-    gulp.task('build', ['lint', 'browserify', 'bower', 'icons', 'scss', 'minify', 'useref']);
+    gulp.task('build', ['clean', 'lint', 'browserify']);
     gulp.task('prod', ['build', 'connect']);
 
 }(require, require('gulp')));
