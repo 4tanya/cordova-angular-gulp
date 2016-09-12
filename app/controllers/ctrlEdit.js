@@ -7,5 +7,5 @@ module.exports = function($scope, item, isEditMode) {
     self.close = function(isAction){
     	var data = isAction ? {item: item, data: {name: self.name}} : null;
         self.$scope.$close(data);
-    }
-}
+    };
+};

@@ -27,4 +27,4 @@ module.exports = function($stateProvider, $urlRouterProvider) {
 		    }
 		    
 	    });
-}
+};

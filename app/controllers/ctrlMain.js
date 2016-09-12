@@ -7,23 +7,23 @@ module.exports = function($scope, $uibModal, serviceApi) {
 
 	self.getDataByCityName = function(data){
 		return self.serviceApi.getDataByCityName(data);
-	}
+	};
 	self.getDataByCoords = function(pos){
 		var lat = pos.coords.latitude,
 			lon = pos.coords.longitude;
 		return self.serviceApi.getDataByCoords({lat:lat, lon:lon});
-	}
+	};
 	self.getDataBySeveralIds = function(data){
 		return self.serviceApi.getDataBySeveralIds(data);
-	}
+	};
 	self.getCurrentTime = function(){
 		var now = new Date();
 		return formatNum(now.getHours()) +':'+ formatNum(now.getMinutes()) +':'+ formatNum(now.getSeconds());
-	}
+	};
 	self.getCurrentDate = function(){
 		var now = new Date();
 		return formatNum(now.getDate()) +'/'+ formatNum(now.getMonth()+1) +'/'+ now.getFullYear();
-	}
+	};
 	self.getAllItems = function(){
 		var data = [];
 	    for (var i=0; i<localStorage.length; i++) {  
@@ -32,7 +32,7 @@ module.exports = function($scope, $uibModal, serviceApi) {
 	        	item = {name: key, data: JSON.parse(value)};
 	        data.push(item);
 	    } self.data = data;
-	}
+	};
 	self.updateAllItems = function(){
 		clearInterval(self.timerUpdate);
 		self.isUpdating = true;
@@ -54,13 +54,13 @@ module.exports = function($scope, $uibModal, serviceApi) {
 			}
 		);
 		
-	}
+	};
 	self.setItem = function(item, data){
 		data.updationDate = self.getCurrentDate();
 		data.updated = self.getCurrentTime();
 		data.created = (item.data && item.data.created) ? item.data.created : self.getCurrentTime();
 		localStorage.setItem(item.name, JSON.stringify(data));
-	}
+	};
 	self.updateItem = function(item){
 		return self.getDataByCityName(item).then(
         	res => {
@@ -70,7 +70,7 @@ module.exports = function($scope, $uibModal, serviceApi) {
         	error => {
         	}
         );
-	}
+	};
 	self.editItem = function(item) {
 		self.$uibModal.open({
 			templateUrl:'../templates/modal.html',
@@ -88,12 +88,12 @@ module.exports = function($scope, $uibModal, serviceApi) {
         	localStorage.removeItem(res.item.name);
             self.updateItem(res.data);
         });
-	}
+	};
 	self.deleteItem = function(item) {
 		if (!confirm("Do you really want to delete " + item.name + "?")) return;
 		localStorage.removeItem(item.name);
 		self.getAllItems();
-	}
+	};
 	self.addItem = function(){
 		self.$uibModal.open({
 			templateUrl:'../templates/modal.html',
@@ -102,23 +102,23 @@ module.exports = function($scope, $uibModal, serviceApi) {
         	if (!!!data) return;
             self.updateItem(data);
         });
-	}
+	};
 	self.fillTableWithData = function(){
 		return self.getAllItems();
-	}
+	};
 	self.setTimerUpdate = function(){
 		self.timerUpdate = setInterval(function(){
 		  self.updateAllItems();
 		}, 300000);
-	}
+	};
 	self.init = function(){
 		self.fillTableWithData();
 		self.setTimerUpdate();
 		self.isUpdating = false;
-	}
+	};
 	
 	function formatNum(num){
 		if (num<10) return '0'+num;
 		return num;
 	}
-}
+};

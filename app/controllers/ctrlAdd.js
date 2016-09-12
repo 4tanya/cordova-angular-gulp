@@ -5,5 +5,5 @@ module.exports = function($scope) {
     self.close = function(isAction){
     	var data = isAction ? {name: self.name} : null;
         self.$scope.$close(data);
-    }
-}
+    };
+};
