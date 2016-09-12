@@ -26,7 +26,7 @@
     gulp.task('clean', function(cb) {
         del(['www/**/*', '!www/index.html', '!www/index_old.html'], cb)
     });
-    gulp.task('build', ['clean', 'lint', 'browserify']);
+    gulp.task('build', ['clean', 'lint', 'browserify', 'bower', 'icons', 'scss', 'minify', 'useref']);
     gulp.task('prod', ['build', 'connect']);
 
 }(require, require('gulp')));
